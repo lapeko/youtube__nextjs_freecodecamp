@@ -1,11 +1,23 @@
-export default () => {
-  const cities = ["London", "San Francisco", "Barcelona"];
+import Image from "next/image";
+
+export default async () => {
+  const {events_categories} = await import("@/data/events.json");
+
   return (
     <main>
-      {cities.map(city => (
-        <article className="p-4">
-          <h2 className="font-bold text-xl">{city}</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi architecto aut, dicta distinctio dolorem esse fugit nobis officia perspiciatis!</p>
+      {events_categories.map(event => (
+        <article className="p-4" key={event.id}>
+          <div className="relative h-64 w-64">
+            <Image
+              src={event.image}
+              alt={event.title}
+              priority={true}
+              fill
+              className="object-cover"
+            />
+          </div>
+          <h2 className="font-bold text-xl">{event.title}</h2>
+          <p>{event.description}</p>
         </article>
       ))}
     </main>
