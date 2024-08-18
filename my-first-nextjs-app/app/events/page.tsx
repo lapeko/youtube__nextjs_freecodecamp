@@ -1,13 +1,13 @@
-const cities = ["London", "San Francisco", "Barcelona"];
-const title = "Hello world";
+import Card from "@/src/components/card";
 
-export default async () => {
+const EventsPage = async () => {
+  const {events_categories: categories} = await import("@/data/events.json");
+
   return (
-    <>
-      <h1>{title}</h1>
-      <main>
-        {cities.map(city => <h1 key={city}>{city}</h1>)}
-      </main>
-    </>
-  )
+    <main>
+      {categories.map(category => <Card item={category}/>)}
+    </main>
+  );
 }
+
+export default EventsPage;
