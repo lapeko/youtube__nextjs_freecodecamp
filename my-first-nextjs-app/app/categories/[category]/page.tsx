@@ -1,5 +1,6 @@
 import {FC} from "react";
 import Card from "@/src/components/card";
+import Link from "next/link";
 
 type EventData = {
   "id": string;
@@ -24,7 +25,11 @@ const EventIdPage: FC<{ params: { category: string } }> = async ({params}) => {
     <>
       <h1>Events in {params.category}</h1>
       <main>
-        {eventsForCategory.map(event => <Card item={event}/>)}
+        {eventsForCategory.map(event => (
+          <Link href={`${params.category}/events/${event.id}`} key={event.id}>
+            <Card item={event}/>
+          </Link>
+        ))}
       </main>
     </>
   );
