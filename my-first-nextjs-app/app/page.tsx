@@ -1,5 +1,9 @@
 import Image from "next/image";
 
+// TODO add footer
+// TODO style the app
+// TODO add register form and send email to API. Save it into JSON
+
 export default async () => {
   const {events_categories: categories} = await import("@/data/events.json");
 
