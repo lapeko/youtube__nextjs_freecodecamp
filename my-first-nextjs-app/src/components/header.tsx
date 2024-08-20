@@ -1,4 +1,4 @@
-import Link from "next/link";
+import {NavLink} from "@/src/components/nav-link";
 
 export const Header = () => (
   <nav className="bg-gray-800">
@@ -23,19 +23,8 @@ export const Header = () => (
         <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
           <div className="hidden sm:ml-6 sm:block">
             <div className="flex space-x-4">
-              <Link
-                href="/"
-                className="rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white"
-                aria-current="page"
-              >Home</Link>
-              <Link
-                href="/categories"
-                className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-              >Categories</Link>
-              <Link
-                href="/about-us"
-                className="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white"
-              >About us</Link>
+              <NavLink href="/">Home</NavLink>
+              <NavLink href="/about-us">About us</NavLink>
             </div>
           </div>
         </div>

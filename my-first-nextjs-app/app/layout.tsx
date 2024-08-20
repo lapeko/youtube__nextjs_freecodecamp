@@ -3,6 +3,7 @@ import type {Metadata} from "next";
 import {Inter} from "next/font/google";
 import {Header} from "@/src/components/header";
 import {Footer} from "@/src/components/footer"
+import {clsx} from "clsx";
 import "./globals.css";
 
 const inter = Inter({subsets: ["latin"]});
@@ -15,9 +16,11 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: Readonly<{ children: ReactNode }>) {
   return (
     <html lang="en">
-    <body className={inter.className}>
+    <body className={clsx(inter.className, "flex flex-col min-h-svh")}>
     <Header/>
-    {children}
+    <div className="container mx-auto mb-auto">
+      {children}
+    </div>
     <Footer/>
     </body>
     </html>
