@@ -14,7 +14,7 @@ const EventPage: FC<{ params: { event: string, city: string } }> = async ({param
   if (!event)
     redirect("/not-found")
 
-  return <Card item={event}/>
+  return <Card item={event} highlight={false}/>
 }
 
 export default EventPage;

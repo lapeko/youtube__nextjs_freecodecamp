@@ -1,5 +1,6 @@
 import Image from "next/image";
 import {FC} from "react";
+import {clsx} from "clsx";
 
 type Props = {
   item: {
@@ -7,12 +8,16 @@ type Props = {
     "title": string;
     "description": string;
     "image": string;
-  }
+  },
+  highlight?: boolean,
 }
 
-const Card: FC<Props> = ({item}) => (
-  <article key={item.id}>
-    <div className="relative h-64 w-64">
+const Card: FC<Props> = ({item, highlight = true}) => (
+  <article
+    key={item.id}
+    className={clsx("p-4 mb-4 rounded-lg duration-200", {"hover:bg-gray-900": highlight})}
+  >
+    <div className="relative h-64 w-64 mb-4">
       <Image
         src={item.image}
         alt={item.title}
@@ -21,8 +26,8 @@ const Card: FC<Props> = ({item}) => (
         className="object-cover"
       />
     </div>
-    <h2 className="font-bold text-xl">{item.title}</h2>
-    <p>{item.description}</p>
+    <h2 className="font-bold text-xl mb-4 text-gray-300">{item.title}</h2>
+    <p className="text-gray-400">{item.description}</p>
   </article>
 )
 
