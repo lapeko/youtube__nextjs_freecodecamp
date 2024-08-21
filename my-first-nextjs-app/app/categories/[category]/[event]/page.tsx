@@ -1,6 +1,7 @@
 import {FC} from "react";
 import {redirect} from "next/navigation";
 import Card from "@/src/components/card";
+import RegistrationForm from "@/src/components/registration-form";
 
 export async function getStaticPaths() {
   const {allEvents} = await import("@/data/events.json");
@@ -14,7 +15,12 @@ const EventPage: FC<{ params: { event: string, city: string } }> = async ({param
   if (!event)
     redirect("/not-found")
 
-  return <Card item={event} highlight={false}/>
+  return (
+    <main>
+      <Card item={event} highlight={false}/>
+      <RegistrationForm event={event}/>
+    </main>
+  )
 }
 
 export default EventPage;

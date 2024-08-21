@@ -2,13 +2,14 @@ import Image from "next/image";
 import {FC} from "react";
 import {clsx} from "clsx";
 
+export type CardDataItem = {
+  "id": string;
+  "title": string;
+  "description": string;
+  "image": string;
+}
 type Props = {
-  item: {
-    "id": string;
-    "title": string;
-    "description": string;
-    "image": string;
-  },
+  item: CardDataItem,
   highlight?: boolean,
 }
 
